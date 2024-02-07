@@ -1,0 +1,13 @@
+package com.invoice.request.processor.function.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RequestProcessorResponse {
+
+    private String status;
+}

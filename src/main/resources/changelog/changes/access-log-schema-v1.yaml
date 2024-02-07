@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: suchait
+      changes:
+        - createTable:
+            tableName: access_log
+            columns:
+              - column:
+                  name: access_log_id
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: invoice_number
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: customer_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: request
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_time
+                  type: timestamp
+                  constraints:
+                    nullable: false
+

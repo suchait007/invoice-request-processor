@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: invoice-request-processor
+
+liquibase:
+  change-log: classpath:/db/changelog/db.changelog-master.yaml
+  default-schema: public
+
