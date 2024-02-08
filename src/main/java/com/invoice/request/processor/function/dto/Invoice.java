@@ -13,6 +13,5 @@ public class Invoice {
     private String invoiceNumber;
     private String customerName;
     private String customerId;
-    private LocalDateTime date;
     private List<LineItem> lineItems;
 }
