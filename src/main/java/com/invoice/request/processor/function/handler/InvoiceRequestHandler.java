@@ -24,10 +24,9 @@ public class InvoiceRequestHandler {
 
     private final RequestService requestService;
 
-    @FunctionName("invoice-request-processor")
+    @FunctionName("invoiceProcessor")
     public HttpResponseMessage processRequest(@HttpTrigger(name = "request", methods = {HttpMethod.POST},
-            authLevel = AuthorizationLevel.ANONYMOUS,
-    route = "trigger/handler/invoice") HttpRequestMessage<Optional<Invoice>> request,
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<Invoice>> request,
                                        ExecutionContext context) {
 
         processRequest(request);
