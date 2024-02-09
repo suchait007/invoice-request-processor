@@ -13,14 +13,13 @@ import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cloud.function.adapter.azure.FunctionInvoker;
 import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 
 @Component
 @RequiredArgsConstructor
-public class InvoiceRequestHandler extends FunctionInvoker<Invoice, RequestProcessorResponse> {
+public class InvoiceRequestHandler {
 
     private final RequestService requestService;
 
