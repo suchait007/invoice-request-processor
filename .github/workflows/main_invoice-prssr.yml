@@ -28,10 +28,8 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-      - name: Init gradle wrapper
-        run: gradle wrapper
-      - name: Change wrapper permissions
-        run: chmod +x ./gradlew
+      - name: Change directory
+        run: cd ..
       - name: Build with Gradle wrapper
         run: ./gradlew build
 
