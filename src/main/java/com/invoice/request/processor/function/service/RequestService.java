@@ -13,11 +13,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static java.util.Objects.isNull;
 
 @Service
 @Slf4j
@@ -26,15 +24,12 @@ public class RequestService {
 
     private final AccessLogRepo accessLogRepo;
     private final Gson gson = new Gson();
-
     private final JmsTemplate jmsTemplate;
+    private final RequestValidator requestValidator;
 
-    @Transactional
     public void logAndSubmitInQueue(Invoice invoice) {
 
-        if(isNull(invoice)) {
-            throw new ProcessorException("Invoice object is empty", List.of("No value present in invoice"), HttpStatus.BAD_REQUEST.value());
-        }
+        requestValidator.validate(invoice);
 
         log.info("Request received : {} ", invoice);
 

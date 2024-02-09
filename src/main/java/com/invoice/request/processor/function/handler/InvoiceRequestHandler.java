@@ -30,7 +30,7 @@ public class InvoiceRequestHandler {
     route = "trigger/handler/invoice") HttpRequestMessage<Optional<Invoice>> request,
                                        ExecutionContext context) {
 
-        CompletableFuture.runAsync(() -> processRequest(request));
+        processRequest(request);
 
         return request
                 .createResponseBuilder(HttpStatus.OK)
