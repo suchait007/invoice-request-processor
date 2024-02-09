@@ -15,9 +15,8 @@ import com.microsoft.azure.functions.annotation.HttpTrigger;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.function.adapter.azure.FunctionInvoker;
 import org.springframework.stereotype.Component;
-
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
+
 
 @Component
 @RequiredArgsConstructor
@@ -26,7 +25,7 @@ public class InvoiceRequestHandler extends FunctionInvoker<Invoice, RequestProce
     private final RequestService requestService;
 
     @FunctionName("invoiceProcessor")
-    public HttpResponseMessage processRequest(@HttpTrigger(name = "request", methods = {HttpMethod.POST},
+    public HttpResponseMessage execute(@HttpTrigger(name = "request", methods = {HttpMethod.POST},
             authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<Invoice>> request,
                                        ExecutionContext context) {
 

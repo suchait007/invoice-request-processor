@@ -21,7 +21,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.cloud:spring-cloud-function-adapter-azure:4.0.1'
+	implementation 'org.springframework.cloud:spring-cloud-function-adapter-azure:4.1.0'
 	implementation 'com.azure.spring:spring-cloud-azure-appconfiguration-config:4.14.0'
 	implementation 'com.azure.spring:spring-cloud-azure-starter-servicebus-jms:4.4.0'
 	implementation 'com.azure:azure-identity:1.10.1'
