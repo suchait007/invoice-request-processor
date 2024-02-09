@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class RequestService {
 
     private final JmsTemplate jmsTemplate;
 
+    @Transactional
     public void logAndSubmitInQueue(Invoice invoice) {
 
         if(isNull(invoice)) {
@@ -44,6 +46,8 @@ public class RequestService {
                     List.of(dataAccessException.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
 
+        log.info("Message has been saved in database.");
+
         try {
             jmsTemplate.convertAndSend("new-invoices", invoice);
         } catch (JmsException jmsException) {
@@ -51,6 +55,8 @@ public class RequestService {
             throw new ProcessorException("Jms exception occurred",
                     List.of(jmsException.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
+
+        log.info("Message has been submitted to inter service connector queue.");
 
     }
 

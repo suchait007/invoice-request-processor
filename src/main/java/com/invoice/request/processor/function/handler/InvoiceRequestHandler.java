@@ -26,7 +26,8 @@ public class InvoiceRequestHandler {
 
     @FunctionName("invoice-request-processor")
     public HttpResponseMessage processRequest(@HttpTrigger(name = "request", methods = {HttpMethod.POST},
-            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<Invoice>> request,
+            authLevel = AuthorizationLevel.ANONYMOUS,
+    route = "trigger/handler/invoice") HttpRequestMessage<Optional<Invoice>> request,
                                        ExecutionContext context) {
 
         CompletableFuture.runAsync(() -> processRequest(request));
