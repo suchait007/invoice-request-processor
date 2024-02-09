@@ -5,6 +5,8 @@ spring:
     servicebus:
       connection-string: Endpoint=sb://inter-service-connector.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=FCJ7ggLjuzsj9p35Om9miQiJL5n/sfjQV+ASbKlGGqY=
       pricing-tier: basic
+      pool:
+        enabled: true
 
 liquibase:
   change-log: classpath:/db/changelog/db.changelog-master.yaml

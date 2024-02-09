@@ -23,7 +23,9 @@ public class TestController {
     @PostMapping("/invoice")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public RequestProcessorResponse testFunctionApi(@RequestBody Invoice invoice) {
-        requestService.logAndSubmitInQueue(invoice);
+
+        CompletableFuture.runAsync(() -> requestService.logAndSubmitInQueue(invoice));
+
         return new RequestProcessorResponse("Accepted");
     }
 }

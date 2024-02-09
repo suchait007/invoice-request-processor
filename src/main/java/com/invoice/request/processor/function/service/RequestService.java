@@ -34,7 +34,7 @@ public class RequestService {
             throw new ProcessorException("Invoice object is empty", List.of("No value present in invoice"), HttpStatus.BAD_REQUEST.value());
         }
 
-        log.info("Request received : {} ", invoice.toString());
+        log.info("Request received : {} ", invoice);
 
         try {
             accessLogRepo.save(populateAccessLog(invoice));
