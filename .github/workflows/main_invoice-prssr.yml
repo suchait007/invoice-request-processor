@@ -32,6 +32,6 @@ jobs:
         with:
           app-name: 'invoice-prssr'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5A1C0FA9C7004179A232421515043AF6 }}
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
           package: '${{ env.PACKAGE_DIRECTORY }}'
           respect-pom-xml: true
