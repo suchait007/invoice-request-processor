@@ -30,6 +30,7 @@ public class RequestService {
     public void logAndSubmitInQueue(Invoice invoice) {
 
         requestValidator.validate(invoice);
+        log.info("Request validation done.");
 
         log.info("Request received : {} ", invoice);
 
