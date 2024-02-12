@@ -54,7 +54,7 @@ azurefunctions {
     pricingTier = 'EP1'
     runtime {
       os = 'linux'
-      javaVersion = '11'
+      javaVersion = '17'
     }
     auth {
       type = 'azure_cli'
