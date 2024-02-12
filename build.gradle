@@ -10,6 +10,12 @@ apply plugin: "com.microsoft.azure.azurefunctions"
 group = 'org.scf.azure'
 version = '0.0.1-SNAPSHOT'
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
 jar {
     manifest {
         attributes(
@@ -55,12 +61,12 @@ tasks.named('test') {
 
 azurefunctions {
     resourceGroup = 'invoice-prssr'
-    appName = 'invoice-request-processor'
+    appName = 'invoice-request-processor1'
     region = 'East US'
-    appServicePlanName = 'ASP-servesslessseriesrsgrp-95cb (Y1: 0)'
+    appServicePlanName = 'ASP-servesslessseriesrsgrp-95cb'
     pricingTier = 'EP1'
     runtime {
-      os = 'linux'
+      os = 'windows'
       javaVersion = '17'
     }
     auth {
@@ -68,7 +74,7 @@ azurefunctions {
     }
     appSettings {
       FUNCTIONS_EXTENSION_VERSION = '~4'
-        WEBSITE_RUN_FROM_PACKAGE = '1'
+      WEBSITE_RUN_FROM_PACKAGE = '1'
     }
     localDebug = "transport=dt_socket,server=y,suspend=n,address=5005"
 }
