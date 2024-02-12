@@ -53,6 +53,7 @@ public class RequestService {
         }
 
         log.info("Message has been submitted to inter service connector queue.");
+        log.info("Function processing done.");
 
     }
 
