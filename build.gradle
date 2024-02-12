@@ -68,6 +68,7 @@ azurefunctions {
     }
     appSettings {
       FUNCTIONS_EXTENSION_VERSION = '~4'
+        WEBSITE_RUN_FROM_PACKAGE = '1'
     }
     localDebug = "transport=dt_socket,server=y,suspend=n,address=5005"
 }
