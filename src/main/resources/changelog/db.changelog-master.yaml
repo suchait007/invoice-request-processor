@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/db/changelog/changes/access-log-schema-v1.yaml
