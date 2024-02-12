@@ -1,4 +1,10 @@
 spring:
+  cloud:
+    azure:
+      compatibility-verifier:
+        enabled: false
+  main:
+    allow-circular-references: true
   application:
     name: invoice-request-processor
   jms:
@@ -7,8 +13,9 @@ spring:
       pricing-tier: basic
       pool:
         enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 liquibase:
   change-log: classpath:/db/changelog/db.changelog-master.yaml
   default-schema: az_function
-
