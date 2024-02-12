@@ -26,7 +26,7 @@ repositories {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
@@ -61,7 +61,7 @@ azurefunctions {
     pricingTier = 'EP1'
     runtime {
       os = 'linux'
-      javaVersion = '11'
+      javaVersion = '17'
     }
     auth {
       type = 'azure_cli'
