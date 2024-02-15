@@ -26,6 +26,7 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 
+- task: PublishBuildArtifacts@1
 - task: AzureFunctionApp@2
   inputs:
     connectedServiceNameARM: 'Pay-As-You-Go(f65151dc-48ba-4cfe-9ec2-68a5feaaf530)'
