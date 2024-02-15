@@ -18,6 +18,14 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
 - task: AzureFunctionApp@2
   inputs:
     connectedServiceNameARM: 'Pay-As-You-Go(f65151dc-48ba-4cfe-9ec2-68a5feaaf530)'
@@ -28,3 +36,4 @@ steps:
     slotName: 'staging'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
+
