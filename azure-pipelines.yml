@@ -11,11 +11,17 @@ pool:
 
 steps:
 
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '17'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
+
 - task: Gradle@3
   inputs:
     gradleWrapperFile: 'gradlew'
     workingDirectory: '$(Build.SourcesDirectory)'
-    tasks: 'clean build'
+    tasks: 'clean build azureFunctionsPackageZip'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: false
@@ -24,8 +30,8 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
+    rootFolderOrFile: '$(Build.SourcesDirectory)/build'
+    includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
@@ -36,3 +42,10 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
+- task: AzureFunctionApp@2
+  inputs:
+    connectedServiceNameARM: 'Pay-As-You-Go(f65151dc-48ba-4cfe-9ec2-68a5feaaf530)'
+    appType: 'functionApp'
+    appName: 'invoicerequest-processor'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
