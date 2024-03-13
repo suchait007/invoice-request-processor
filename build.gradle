@@ -60,10 +60,10 @@ tasks.named('test') {
 }
 
 azurefunctions {
-    resourceGroup = 'invoice-prssr'
-    appName = 'invoice-request-processor1'
+    resourceGroup = 'invoicerequestprocessor'
+    appName = 'invoicerequest-processor'
     region = 'East US'
-    appServicePlanName = 'ASP-servesslessseriesrsgrp-95cb'
+    appServicePlanName = 'ASP-invoiceprssr-80b6'
     pricingTier = 'EP1'
     runtime {
       os = 'windows'
