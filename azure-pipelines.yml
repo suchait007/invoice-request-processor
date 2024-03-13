@@ -21,6 +21,16 @@ steps:
     sonarQubeRunAnalysis: false
     spotBugsAnalysis: false
 
+- task: Gradle@3
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    workingDirectory: '$(Build.SourcesDirectory)'
+    tasks: 'azureFunctionsPackageZip'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: false
+    spotBugsAnalysis: false
 
 - task: ArchiveFiles@2
   inputs:
