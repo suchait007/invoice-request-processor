@@ -42,3 +42,10 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
+- task: AzureFunctionApp@2
+  inputs:
+    connectedServiceNameARM: 'Pay-As-You-Go(f65151dc-48ba-4cfe-9ec2-68a5feaaf530)'
+    appType: 'functionApp'
+    appName: 'invoicerequest-processor'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
