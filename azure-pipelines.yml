@@ -15,22 +15,12 @@ steps:
   inputs:
     gradleWrapperFile: 'gradlew'
     workingDirectory: '$(Build.SourcesDirectory)'
-    tasks: 'clean build'
+    tasks: 'clean build azureFunctionsPackageZip'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: false
     spotBugsAnalysis: false
 
-- task: Gradle@3
-  inputs:
-    gradleWrapperFile: 'gradlew'
-    workingDirectory: '$(Build.SourcesDirectory)'
-    tasks: 'azureFunctionsPackageZip'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: false
-    spotBugsAnalysis: false
 
 - task: ArchiveFiles@2
   inputs:
