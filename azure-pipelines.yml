@@ -20,13 +20,14 @@ steps:
 
 - task: Gradle@3
   inputs:
-    gradleWrapperFile: 'gradlew'
+    gradleWrapperFile: './gradlew'
     tasks: 'clean build'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: false
     spotBugsAnalysis: false
+
 
 
 - task: ArchiveFiles@2
