@@ -15,6 +15,7 @@ steps:
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
+    cd invoice-request-processor
     ./gradlew clean build
   displayName: 'Run a multi-line script'
 
