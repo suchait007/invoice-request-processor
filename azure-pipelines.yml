@@ -26,7 +26,7 @@ steps:
     gradleWrapperFile: 'gradlew'
     workingDirectory: '$(Build.SourcesDirectory)'
     tasks: 'azureFunctionsPackageZip'
-    publishJUnitResults: true
+    publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: false
