@@ -9,7 +9,7 @@ spring:
     name: invoice-request-processor
   jms:
     servicebus:
-      connection-string: Endpoint=sb://inter-service-connector.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=FCJ7ggLjuzsj9p35Om9miQiJL5n/sfjQV+ASbKlGGqY=
+      connection-string: <Your service bus instance connection string will here>
       pricing-tier: basic
       pool:
         enabled: true
