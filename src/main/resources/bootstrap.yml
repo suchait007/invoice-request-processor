@@ -4,4 +4,4 @@ spring:
       appconfiguration:
         enabled: true
         stores[0]:
-          connection-string: Endpoint=https://az-functions.azconfig.io;Id=MsAt;Secret=hSHjIoighQsgxCBL5ACD5FbLHNYDVxxf/lc3kSfOrkY=
+          connection-string: <Your application configuration connection string will come here>
